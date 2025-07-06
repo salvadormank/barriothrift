@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarrioThrift - Ropa Vintage y Segunda Mano en Monterrey | Streetwear Auténtico</title>
+    
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="BarrioThrift Monterrey - La mejor tienda de ropa vintage y segunda mano en Monterrey, NL. Streetwear auténtico, Nike, Supreme, Carhartt. Moda sustentable y piezas únicas en el centro de Monterrey.">
+    <meta name="keywords" content="ropa segunda mano monterrey, ropa vintage monterrey, streetwear monterrey, thrift store monterrey, ropa usada monterrey, nike vintage, supreme, carhartt, ropa vintage centro monterrey, thrift monterrey, segunda mano nuevo leon, ropa retro monterrey, vintage clothing monterrey, streetwear segunda mano">
+    <meta name="author" content="BarrioThrift">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="MX-NL">
+    <meta name="geo.placename" content="Monterrey">
+    <meta name="geo.position" content="25.6866;-100.3161">
+    <meta name="ICBM" content="25.6866, -100.3161">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://barriothrift.com/">
+    <meta property="og:title" content="BarrioThrift - Ropa Vintage y Segunda Mano en Monterrey">
+    <meta property="og:description" content="Streetwear auténtico y ropa vintage en Monterrey. Nike, Supreme, Carhartt y más marcas icónicas. Moda sustentable con alma de barrio.">
+    <meta property="og:image" content="https://barriothrift.com/images/og-image.jpg">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="BarrioThrift">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://barriothrift.com/">
+    <meta property="twitter:title" content="BarrioThrift - Ropa Vintage y Segunda Mano en Monterrey">
+    <meta property="twitter:description" content="Streetwear auténtico y ropa vintage en Monterrey. Nike, Supreme, Carhartt y más marcas icónicas.">
+    <meta property="twitter:image" content="https://barriothrift.com/images/twitter-image.jpg">
+    
+    <!-- Schema.org para Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "BarrioThrift",
+      "image": "https://barriothrift.com/images/logo.jpg",
+      "@id": "https://barriothrift.com",
+      "url": "https://barriothrift.com",
+      "telephone": "+52-81-1234-5678",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Constitución 2405",
+        "addressLocality": "Monterrey",
+        "addressRegion": "Nuevo León",
+        "postalCode": "64000",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.6866,
+        "longitude": -100.3161
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday", 
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "10:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "11:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "12:00",
+          "closes": "17:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/barriothrift",
+        "https://www.facebook.com/barriothrift",
+        "https://twitter.com/barriothrift"
+      ],
+      "description": "Tienda de ropa vintage y segunda mano en Monterrey. Streetwear auténtico, marcas como Nike, Supreme, Carhartt. Moda sustentable con alma de barrio."
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://barriothrift.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 900;
+            transform: rotate(-5deg);
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.2s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            background: #000;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cart-icon:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            margin-top: 80px;
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #000;
+        }
+
+        .featured-section {
+            padding: 8rem 0;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-image::after {
+            opacity: 1;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-brand {
+            color: #999;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .categories-section {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: scale(1.02);
+        }
+
+        .category-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+            transition: all 0.4s ease;
+        }
+
+        .category-card:nth-child(2) .category-bg {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        }
+
+        .category-card:nth-child(3) .category-bg {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .category-card:nth-child(4) .category-bg {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .category-button {
+            background: white;
+            color: #000;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .category-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .brands-section {
+            padding: 8rem 0;
+            background: #000;
+            color: white;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .brand-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-item:hover {
+            border-color: white;
+            transform: translateY(-5px);
+        }
+
+        .brand-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">BT</div>
+                BarrioThrift
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="hombres.html">Hombre</a></li>
+                <li><a href="mujeres.html">Mujer</a></li>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <a href="#" class="cart-icon">Carrito (0)</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Street Culture Redefinida</h1>
+            <p>Descubre piezas auténticas de la cultura urbana. Streetwear vintage, graffiti vibes y estilo de barrio que define tu identidad.</p>
+            <div class="hero-buttons">
+                <a href="#productos" class="btn-primary">Explorar Street Style</a>
+                <a href="#categorias" class="btn-secondary">Ver El Flow</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <section class="featured-section" id="productos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Drops Urbanos</h2>
+                <p>Lo más fresh del streetwear vintage. Piezas que representan la auténtica cultura de barrio</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Nike</div>
+                        <div class="product-title">Vintage Swoosh Hoodie</div>
+                        <div class="product-price">$89</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1594633313593-bab3825d0caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Carhartt</div>
+                        <div class="product-title">Streetwear Work Jacket</div>
+                        <div class="product-price">$125</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1560243563-062bfc001d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Adidas</div>
+                        <div class="product-title">Retro Track Suit</div>
+                        <div class="product-price">$95</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Supreme</div>
+                        <div class="product-title">Box Logo Tee</div>
+                        <div class="product-price">$155</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Thrasher</div>
+                        <div class="product-title">Skate Logo Hoodie</div>
+                        <div class="product-price">$98</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Levi's</div>
+                        <div class="product-title">Baggy Street Jeans</div>
+                        <div class="product-price">$85</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Dickies</div>
+                        <div class="product-title">Cargo Work Pants</div>
+                        <div class="product-price">$72</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Fubu</div>
+                        <div class="product-title">Hip-Hop Jersey</div>
+                        <div class="product-price">$145</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Champion</div>
+                        <div class="product-title">Reverse Weave Hoodie</div>
+                        <div class="product-price">$78</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Vans</div>
+                        <div class="product-title">Old Skool Skate Shoes</div>
+                        <div class="product-price">$65</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Stussy</div>
+                        <div class="product-title">Street Logo Hoodie</div>
+                        <div class="product-price">$92</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1610384104075-e05c8cf200c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="product-info">
+                        <div class="product-brand">Wu-Tang</div>
+                        <div class="product-title">Classic Logo Tee</div>
+                        <div class="product-price">$68</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section" id="categorias">
+        <div class="container">
+            <div class="section-header">
+                <h2>Street Categories</h2>
+                <p>Encuentra tu vibe perfecto. Desde hip-hop clásico hasta skate culture auténtico</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-bg"></div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Hip-Hop</h3>
+                        <p class="category-description">Jerseys oversized, hoodies y piezas que marcan la cultura</p>
+                        <a href="#" class="category-button">Check It</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-bg"></div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Skate</h3>
+                        <p class="category-description">Vans, Thrasher y todo lo que representa la cultura skate</p>
+                        <a href="#" class="category-button">Roll Up</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-bg"></div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Graffiti</h3>
+                        <p class="category-description">Cargos, hoodies y gear para los writers de la ciudad</p>
+                        <a href="#" class="category-button">Tag It</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-bg"></div>
+                    <div class="category-overlay">
+                        <h3 class="category-title">Sneakers</h3>
+                        <p class="category-description">Jordan, Nike y kicks que definen el street game</p>
+                        <a href="#" class="category-button">Step Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section" id="marcas">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Marcas del Barrio</h2>
+                <p style="color: #ccc;">Las marcas que movieron la cultura urbana desde los 90s</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <h3>Nike</h3>
+                    <p>Air Jordan legacy</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Carhartt</h3>
+                    <p>Street workwear</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Adidas</h3>
+                    <p>Hip-hop culture</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Dickies</h3>
+                    <p>Cholo style classic</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Thrasher</h3>
+                    <p>Skate magazine</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Fubu</h3>
+                    <p>For Us By Us</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Supreme</h3>
+                    <p>Hype beast culture</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Levi's</h3>
+                    <p>Baggy denim era</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Champion</h3>
+                    <p>Reverse weave classic</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Vans</h3>
+                    <p>Skate culture roots</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Stussy</h3>
+                    <p>OG streetwear</p>
+                </div>
+                <div class="brand-item">
+                    <h3>Wu-Tang</h3>
+                    <p>36 Chambers style</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Servicio al Cliente</h3>
+                    <ul>
+                        <li><a href="#">Información de Envío</a></li>
+                        <li><a href="#">Política de Devoluciones</a></li>
+                        <li><a href="#">Guía de Tallas</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sobre BarrioThrift</h3>
+                    <ul>
+                        <li><a href="#">Nuestra Historia</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                        <li><a href="#">Únete al Equipo</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Conecta</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BarrioThrift. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.product-card, .category-card, .brand-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

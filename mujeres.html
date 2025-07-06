@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mujeres - BarrioThrift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 900;
+            transform: rotate(-5deg);
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.2s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .cart-icon {
+            background: #000;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cart-icon:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            margin-top: 80px;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filters-section {
+            padding: 3rem 0;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filters-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        .results-info {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .categories-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .category-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover .category-bg {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            display: flex;
+            align-items: end;
+            padding: 2rem;
+        }
+
+        .category-content {
+            color: white;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-count {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .products-section {
+            padding: 4rem 0;
+            background: #fafafa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-badge.new {
+            background: #4ecdc4;
+        }
+
+        .product-badge.limited {
+            background: #ffd93d;
+            color: #000;
+        }
+
+        .product-badge.trendy {
+            background: #f093fb;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-brand {
+            color: #999;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-size {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: #000;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .add-to-cart:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-btn {
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .load-more-btn:hover {
+            background: #000;
+            color: white;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .category-card {
+                height: 250px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">BT</div>
+                BarrioThrift
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="hombres.html">Hombre</a></li>
+                <li><a href="mujeres.html" class="active">Mujer</a></li>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <a href="#" class="cart-icon">Carrito (0)</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Women's Streetwear</h1>
+            <p>Piezas que empoderan y definen. Street style femenino con actitud y autenticidad.</p>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">Todas las Categorías</option>
+                        <option value="hoodies">Hoodies</option>
+                        <option value="tops">Tops & Camisetas</option>
+                        <option value="bottoms">Pantalones</option>
+                        <option value="dresses">Vestidos</option>
+                        <option value="jackets">Chaquetas</option>
+                        <option value="sneakers">Sneakers</option>
+                        <option value="accessories">Accesorios</option>
+                    </select>
+                    
+                    <select class="filter-select" id="brandFilter">
+                        <option value="">Todas las Marcas</option>
+                        <option value="nike">Nike</option>
+                        <option value="adidas">Adidas</option>
+                        <option value="champion">Champion</option>
+                        <option value="fila">Fila</option>
+                        <option value="tommy">Tommy Hilfiger</option>
+                        <option value="calvin">Calvin Klein</option>
+                    </select>
+                    
+                    <select class="filter-select" id="sizeFilter">
+                        <option value="">Todas las Tallas</option>
+                        <option value="xs">XS</option>
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                        <option value="xl">XL</option>
+                    </select>
+                    
+                    <select class="filter-select" id="priceFilter">
+                        <option value="">Todos los Precios</option>
+                        <option value="0-40">$0 - $40</option>
+                        <option value="40-80">$40 - $80</option>
+                        <option value="80-120">$80 - $120</option>
+                        <option value="120+">$120+</option>
+                    </select>
+                </div>
+                
+                <div class="results-info">
+                    <span id="resultsCount">95 productos encontrados</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Shop by Style</h2>
+                <p>Encuentra tu vibe perfecto en nuestra colección curada de streetwear femenino</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="hoodies">
+                    <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3 class="category-title">Hoodies & Sweatshirts</h3>
+                            <p class="category-count">28 productos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="tops">
+                    <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3 class="category-title">Tops & Tees</h3>
+                            <p class="category-count">32 productos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="bottoms">
+                    <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3 class="category-title">Pantalones & Jeans</h3>
+                            <p class="category-count">18 productos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="jackets">
+                    <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="category-overlay">
+                        <div class="category-content">
+                            <h3 class="category-title">Chaquetas & Outerwear</h3>
+                            <p class="category-count">17 productos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fresh Arrivals</h2>
+                <p>Las piezas más fire que acaban de aterrizar en nuestra colección femenina</p>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <div class="product-card" data-category="hoodies" data-brand="nike" data-price="75">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-badge new">Nuevo</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Nike</div>
+                        <div class="product-title">Oversized Swoosh Hoodie Pink</div>
+                        <div class="product-size">Talla: M</div>
+                        <div class="product-price">$75</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="tops" data-brand="champion" data-price="45">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-badge trendy">Trendy</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Champion</div>
+                        <div class="product-title">Cropped Logo Tee White</div>
+                        <div class="product-size">Talla: S</div>
+                        <div class="product-price">$45</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="jackets" data-brand="adidas" data-price="95">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Adidas</div>
+                        <div class="product-title">Trefoil Track Jacket Purple</div>
+                        <div class="product-size">Talla: L</div>
+                        <div class="product-price">$95</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bottoms" data-brand="tommy" data-price="65">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Tommy Hilfiger</div>
+                        <div class="product-title">High Waist Mom Jeans</div>
+                        <div class="product-size">Talla: 28</div>
+                        <div class="product-price">$65</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="hoodies" data-brand="fila" data-price="58">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-badge">Vintage</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Fila</div>
+                        <div class="product-title">Retro Logo Sweatshirt</div>
+                        <div class="product-size">Talla: M</div>
+                        <div class="product-price">$58</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="sneakers" data-brand="nike" data-price="85">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Nike</div>
+                        <div class="product-title">Air Force 1 Low White/Pink</div>
+                        <div class="product-size">Talla: US 7</div>
+                        <div class="product-price">$85</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="tops" data-brand="calvin" data-price="52">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-badge limited">Limited</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Calvin Klein</div>
+                        <div class="product-title">Logo Sports Bra Black</div>
+                        <div class="product-size">Talla: S</div>
+                        <div class="product-price">$52</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="dresses" data-brand="tommy" data-price="78">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Tommy Hilfiger</div>
+                        <div class="product-title">Polo Dress Navy</div>
+                        <div class="product-size">Talla: M</div>
+                        <div class="product-price">$78</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="hoodies" data-brand="champion" data-price="68">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="product-badge new">Nuevo</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Champion</div>
+                        <div class="product-title">Reverse Weave Hoodie Lavender</div>
+                        <div class="product-size">Talla: L</div>
+                        <div class="product-price">$68</div>
+                        <button class="add-to-cart">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn">Cargar Más Productos</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Servicio al Cliente</h3>
+                    <ul>
+                        <li><a href="#">Información de Envío</a></li>
+                        <li><a href="#">Política de Devoluciones</a></li>
+                        <li><a href="#">Guía de Tallas</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sobre BarrioThrift</h3>
+                    <ul>
+                        <li><a href="nosotros.html">Nuestra Historia</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                        <li><a href="#">Únete al Equipo</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Conecta</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BarrioThrift. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        let cartCount = 0;
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Filter functionality
+        const categoryFilter = document.getElementById('categoryFilter');
+        const brandFilter = document.getElementById('brandFilter');
+        const sizeFilter = document.getElementById('sizeFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const resultsCount = document.getElementById('resultsCount');
+        const productsGrid = document.getElementById('productsGrid');
+
+        function filterProducts() {
+            const products = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                const category = product.dataset.category;
+                const brand = product.dataset.brand;
+                const price = parseInt(product.dataset.price);
+
+                const categoryMatch = !categoryFilter.value || category === categoryFilter.value;
+                const brandMatch = !brandFilter.value || brand === brandFilter.value;
+                
+                let priceMatch = true;
+                if (priceFilter.value) {
+                    const [min, max] = priceFilter.value.split('-').map(p => p.replace('+', ''));
+                    if (max) {
+                        priceMatch = price >= parseInt(min) && price <= parseInt(max);
+                    } else {
+                        priceMatch = price >= parseInt(min);
+                    }
+                }
+
+                if (categoryMatch && brandMatch && priceMatch) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            resultsCount.textContent = `${visibleCount} productos encontrados`;
+        }
+
+        // Add event listeners for filters
+        [categoryFilter, brandFilter, sizeFilter, priceFilter].forEach(filter => {
+            filter.addEventListener('change', filterProducts);
+        });
+
+        // Category card click functionality
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.dataset.category;
+                categoryFilter.value = category;
+                filterProducts();
+                
+                // Smooth scroll to products section
+                document.querySelector('.products-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const productCard = button.closest('.product-card');
+                const brand = productCard.querySelector('.product-brand').textContent;
+                const title = productCard.querySelector('.product-title').textContent;
+                const price = productCard.querySelector('.product-price').textContent;
+                
+                // Add to cart array
+                cart.push({
+                    brand: brand,
+                    title: title,
+                    price: price
+                });
+                
+                cartCount++;
+                
+                // Update cart counter
+                document.querySelector('.cart-icon').textContent = `Carrito (${cartCount})`;
+                
+                // Visual feedback
+                button.textContent = '¡Añadido!';
+                button.style.background = '#f093fb';
+                
+                setTimeout(() => {
+                    button.textContent = 'Añadir al Carrito';
+                    button.style.background = '#000';
+                }, 1500);
+                
+                // Show notification
+                showNotification(`${brand} ${title} añadido al carrito`);
+            });
+        });
+
+        // Load more functionality
+        document.querySelector('.load-more-btn').addEventListener('click', () => {
+            // Simulate loading more products
+            const button = document.querySelector('.load-more-btn');
+            button.textContent = 'Cargando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Cargar Más Productos';
+                button.disabled = false;
+                showNotification('Se han cargado más productos');
+            }, 1500);
+        });
+
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 2rem;
+                background: #f093fb;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.product-card, .category-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Initialize filters
+        filterProducts();
+    </script>
+</body>
+</html>
