@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tuusuario.github.io/barriothrift/sitemap.xml
+
+# Block common bot folders (optional)
+Disallow: /assets/
+Disallow: /.git/
+
+# Allow important pages
+Allow: /index.html
+Allow: /hombres.html
+Allow: /mujeres.html
+Allow: /nosotros.html
+Allow: /contacto.html
